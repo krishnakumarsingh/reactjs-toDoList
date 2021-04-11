@@ -26,7 +26,7 @@ const List = ({
             </label>
         </li>
     ));
-    return (<><h2>{listHeadLine}</h2><ul>{list}</ul></>);
+    return (<><h2>{listHeadLine}</h2><ul className="todo-list">{list}</ul></>);
 }
 
 export default List
