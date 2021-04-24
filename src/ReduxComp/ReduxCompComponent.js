@@ -1,89 +1,104 @@
-import React, { useState } from "react";
+import React, { useState /* , useEffect */ } from "react";
 import Cart from "./Cart";
+import "./index.css";
+// import CurrencyComa from "../components/CurrencyComa";
+import ReduxApiComp from "./ReduxApiComp";
+// import Cards from "./Cards";
 
-const imgPath = "./assets/img/";
-const lists = [
-  {
-    id: "list-1",
-    img: "iphone-x.jpeg",
-    productTitle: "Card title 1",
-    productDetails: `This is a wider card with supporting text below as a natural
-  lead-in to additional content. This content is a little bit
-  longer.`,
-    updatedHeading: "Last updated 3 mins ago",
-  },
-  {
-    id: "list-2",
-    img: "iphone-x.jpeg",
-    productTitle: "Card title 2",
-    productDetails: `This is a wider card with supporting text below as a natural
-  lead-in to additional content. This content is a little bit
-  longer.`,
-    updatedHeading: "Last updated 3 mins ago",
-  },
-  {
-    id: "list-3",
-    img: "iphone-x.jpeg",
-    productTitle: "Card title 3",
-    productDetails: `This is a wider card with supporting text below as a natural
-  lead-in to additional content. This content is a little bit
-  longer.`,
-    updatedHeading: "Last updated 3 mins ago",
-  },
-  {
-    id: "list-4",
-    img: "iphone-x.jpeg",
-    productTitle: "Card title 3",
-    productDetails: `This is a wider card with supporting text below as a natural
-  lead-in to additional content. This content is a little bit
-  longer.`,
-    updatedHeading: "Last updated 3 mins ago",
-  },
-];
 const ReduxCompComponent = (props) => {
-  console.log(props);
   const [count, setCount] = useState(0);
+  const [cartCont, setCartCont] = useState([]);
+  const [cardsStyle, setCardsStyle] = useState("cards-style");
+  const [chunkCount, setChunkCount] = useState(9);
+  // console.log(props.changeFieldValue);
   const updateHanled = () => {
     setCount(count + 1);
     props.changeFieldValue("count", count + 1);
   };
-  const cartUpdateHanled = (x, y) => {
-    setCount(count + 1);
-    props.changeFieldValue(x, y);
+  const cartUpdateHanled = (name, list) => {
+    const cartConts = [...cartCont];
+    if (cartConts.some((elem) => elem[name].id === list.id))
+      console.log("Already Added!!");
+    else cartConts.push({ [name]: list });
+    setCartCont(cartConts);
+    props.changeFieldValue(name, list);
   };
-  const cardContainer = lists.map((eachList, index) => (
-    <div
-      className="card mb-3 product-card"
-      key={index + eachList}
-      onClick={() => cartUpdateHanled("addCart", eachList.id)}
-    >
-      <div className="row no-gutters">
-        <div className="col-md-4">
-          <img
-            src={`${imgPath}${eachList.img}`}
-            className="card-img"
-            alt="iphone-x"
-          />
-        </div>
-        <div className="col-md-8">
-          <div className="card-body">
-            <h5 className="card-title">{eachList.productTitle}</h5>
-            <p className="card-text">{eachList.productDetails}</p>
-            <p className="card-text">
-              <small className="text-muted">{eachList.updatedHeading}</small>
-            </p>
-          </div>
-        </div>
+
+  const removeCartUpdateHanled = (name, list) => {
+    const cartConts = [...cartCont];
+    const currentIndex = cartConts
+      .map((elem, index) => {
+        return elem[name].id;
+      })
+      .indexOf(list[name].id);
+    cartConts.splice(currentIndex, 1);
+    setCartCont(cartConts);
+    props.changeFieldValue(name, list);
+  };
+  const navBar = (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light mt-3">
+      <div className="container">
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <a href="#">Home</a>
+            </li>
+            {/* <li className="breadcrumb-item">
+              <a href="#">Library</a>
+            </li> */}
+            <li className="breadcrumb-item active" aria-current="page">
+              Redux Component
+            </li>
+          </ol>
+        </nav>
+        <span className="navbar-text">
+          <i
+            className={`fas fa fa-th-large ft-2 mr-2 ${
+              cardsStyle === "cards-container" ? "" : "active"
+            }`}
+            onClick={() => {
+              setCardsStyle("cards-style");
+              setChunkCount(9);
+            }}
+          ></i>
+          <i
+            className={`fas fa fa-bars ft-2 ${
+              cardsStyle === "cards-style" ? "" : "active"
+            }`}
+            onClick={() => {
+              setCardsStyle("cards-container");
+              setChunkCount(10);
+            }}
+          ></i>
+        </span>
       </div>
-    </div>
-  ));
+    </nav>
+  );
   return (
     <div>
-      <div className="product-card-container">{cardContainer}</div>
+      {navBar}
+      <div className="product-card-container">
+        <div className="col-md-8">
+          <div className="row">
+            <ReduxApiComp
+              cartUpdateHanled={cartUpdateHanled}
+              cardsClass={cardsStyle}
+              chunkCount={chunkCount}
+              itemsAdd={props.itemsAdd}
+            />
+          </div>
+        </div>
+        <div className="col-md-4">
+          <Cart
+            cartUpdateHanled={removeCartUpdateHanled}
+            data={cartCont}
+            cardsClass={cardsStyle}
+            chunkCount={chunkCount}
+          />
+        </div>
+      </div>
       <div>{props.counter.count || count}</div>
-      {console.log(props.counter)}
       <button onClick={() => updateHanled()}>Click Here</button>
-      <Cart data={props.counter.count || count} />
     </div>
   );
 };

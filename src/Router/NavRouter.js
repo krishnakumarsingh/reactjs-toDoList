@@ -28,6 +28,13 @@ const NavRouter = () => {
         children={({ match }) => (
           <li className="nav-item">
             <Link to={to} className={`nav-link ${match ? "active" : ""}`}>
+              {rest.icon && (
+                <i
+                  className={`fas fa ${
+                    rest.locakIcon ? "fa-unlock" : "fa-lock"
+                  } mr-2`}
+                />
+              )}
               {rest.linkText}
             </Link>
           </li>
@@ -53,8 +60,18 @@ const NavRouter = () => {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <ListItemLink to="/" linkText="Home" />
-            <ListItemLink to="/protected" linkText="Protected" />
-            <ListItemLink to="/unprotected" linkText="Unprotected" />
+            <ListItemLink
+              to="/protected"
+              linkText={`Protected`}
+              locakIcon={isAutheticated}
+              icon="lock"
+            />
+            <ListItemLink
+              to="/unprotected"
+              linkText={`Unprotected`}
+              locakIcon={isAutheticated}
+              icon="lock"
+            />
             <ListItemLink to="/redux-comp" linkText="Redux Comp" />
           </ul>
           <form className="form-inline">

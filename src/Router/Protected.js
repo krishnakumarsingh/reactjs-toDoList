@@ -7,6 +7,7 @@ import PureComp from "../PureComponent";
 import Table from "../components/Table";
 import VariablesName from "../components/VariablesName";
 import SortStingAndCount from "../components/SortStingAndCount";
+import ChunkArray from "../components/ChunkArray";
 
 const Protected = () => {
   return (
@@ -24,6 +25,8 @@ const Protected = () => {
       <VariablesName />
       <hr />
       <SortStingAndCount />
+      <hr />
+      <ChunkArray />
       <hr />
     </>
   );
