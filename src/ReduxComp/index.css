@@ -40,6 +40,35 @@ img {
   vertical-align: middle;
 }
 
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--card-box-shadow);
+}
+
+.loader--box {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+}
+
+.loader--box__animation {
+  border: 16px solid var(--light-gray);
+  border-top: 16px solid var(--link-blue);
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .btn {
   background-color: var(--white);
   border: 1px solid var(--dark-gray-2);

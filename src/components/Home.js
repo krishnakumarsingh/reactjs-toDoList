@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <>
       <h1>Home</h1>
-
+      {user.user.firstName}
       <EffectHooks taskList={taskList} />
       <Header header={"To list"} />
       <hr />

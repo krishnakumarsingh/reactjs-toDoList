@@ -1,4 +1,6 @@
-import React, { useState /* , useEffect */ } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { itemsAdd } from "./action";
 import Cart from "./Cart";
 import "./index.css";
 // import CurrencyComa from "../components/CurrencyComa";
@@ -10,7 +12,12 @@ const ReduxCompComponent = (props) => {
   const [cartCont, setCartCont] = useState([]);
   const [cardsStyle, setCardsStyle] = useState("cards-style");
   const [chunkCount, setChunkCount] = useState(9);
-  // console.log(props.changeFieldValue);
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.posts);
+  useEffect(() => {
+    dispatch(itemsAdd());
+  }, [cartCont]);
+
   const updateHanled = () => {
     setCount(count + 1);
     props.changeFieldValue("count", count + 1);
@@ -84,7 +91,7 @@ const ReduxCompComponent = (props) => {
               cartUpdateHanled={cartUpdateHanled}
               cardsClass={cardsStyle}
               chunkCount={chunkCount}
-              itemsAdd={props.itemsAdd}
+              itemsAdd={posts}
             />
           </div>
         </div>

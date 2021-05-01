@@ -11,7 +11,6 @@ function Cards({
   priceNet = CurrencyComa(199, "₹"),
 }) {
   let titleNew = title ? title.replace(/\s/g, "-") : "";
-  console.log("Cards");
   return (
     <li
       className="cards__item"

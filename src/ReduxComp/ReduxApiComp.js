@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
+import Pagination from "./Pagination";
+import Loading from "./Loading";
 
 function ReduxApiComp({ cartUpdateHanled, cardsClass, chunkCount, itemsAdd }) {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+  // const [error, setError] = useState(null);
+  // const [isLoaded, setIsLoaded] = useState(false);
+  // const [items, setItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const chunkFn = function (arr, chunk) {
     var arrTemp = [];
@@ -15,68 +17,20 @@ function ReduxApiComp({ cartUpdateHanled, cardsClass, chunkCount, itemsAdd }) {
     }
     return arrTemp;
   };
-  console.log(itemsAdd);
-  useEffect(() => {
-    const url = "https://jsonplaceholder.typicode.com/photos";
-    itemsAdd(url);
-  }, []);
-
-  const pagination = items.map((eachList, index) => {
-    // eachList.length;
-    let currentItemId = index;
-    let activevalue =
-      currentPage === index - 1 ||
-      currentPage === index ||
-      currentPage === index + 1;
-
-    if (activevalue)
-      return (
-        <li
-          key={index}
-          style={{
-            display:
-              currentPage === index - 1 ||
-              currentPage === index ||
-              currentPage === index + 1
-                ? "inline"
-                : "none",
-          }}
-          className={currentPage === index ? "active" : ""}
-        >
-          <span onClick={() => setCurrentPage(currentItemId)}>
-            {currentItemId + 1}
-          </span>
-        </li>
-      );
-  });
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Loading...</div>;
-  } else {
+  if (!itemsAdd) return <Loading />;
+  else {
+    var pageList = chunkFn(itemsAdd, chunkCount);
     return (
       <>
-        <div className="justify-content-end">
-          <ul className="pagination col-sm-12">
-            <li
-              style={{ display: "inline" }}
-              className={currentPage === 0 ? "disabled" : ""}
-            >
-              <span onClick={() => setCurrentPage(0)}>Previous</span>
-            </li>
-            {pagination}
-            <li
-              style={{ display: "inline" }}
-              className={currentPage === items.length - 1 ? "disabled" : ""}
-            >
-              <span onClick={() => setCurrentPage(items.length - 1)}>Last</span>
-            </li>
-          </ul>
-        </div>
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          pageList={pageList}
+        />
         <div className={`row ${cardsClass}`}>
           <ul className="cards">
-            {items.length > 0 &&
-              items[currentPage].map((eachList, index) => {
+            {pageList.length > 0 &&
+              pageList[currentPage].map((eachList, index) => {
                 const { albumId, id, url, title } = eachList;
                 return (
                   <Cards

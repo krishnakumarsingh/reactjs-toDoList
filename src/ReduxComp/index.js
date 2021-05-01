@@ -4,7 +4,6 @@ import store from "./store";
 import ReduxCompContainer from "./ReduxCompContainer.js";
 
 const ReduxComp = (props) => {
-  console.log("Store: ", store);
   return (
     <Provider store={store}>
       <ReduxCompContainer {...props} />
