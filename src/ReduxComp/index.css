@@ -56,8 +56,8 @@ img {
 }
 
 .loader--box__animation {
-  border: 16px solid var(--light-gray);
-  border-top: 16px solid var(--link-blue);
+  border: 36px solid var(--light-gray);
+  border-top: 36px solid var(--link-blue);
   border-radius: 50%;
   width: 200px;
   height: 200px;
