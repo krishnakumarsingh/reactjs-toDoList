@@ -15,12 +15,15 @@ export function cartAdd(name, value) {
   };
 }
 
-export const itemsAdd = () => async (dispatch) => {
-  const result = await fetch(
-    "https://jsonplaceholder.typicode.com/photos"
-  ).then((res) => res.json());
-  dispatch({
-    type: ADD_ITEM,
-    payload: result,
+export const itemsAdd = () => (dispatch) => {
+  new Promise((resolve, reject) => {
+    fetch("https://jsonplaceholder.typicode.com/photos")
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({
+          type: ADD_ITEM,
+          payload: data,
+        });
+      });
   });
 };
