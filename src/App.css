@@ -1,5 +1,7 @@
-@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css';
-@import 'https://use.fontawesome.com/releases/v5.7.0/css/all.css';
+@import '~bootstrap';
+@import '~font-awesome';
+/* @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css';
+@import 'https://use.fontawesome.com/releases/v5.7.0/css/all.css'; */
 
 ul.todo-list {
   margin: 0;
