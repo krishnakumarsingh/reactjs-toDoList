@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import NavRouter from "./Router/NavRouter";
 
 function App() {
