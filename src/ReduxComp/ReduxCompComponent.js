@@ -2,12 +2,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { itemsAdd } from "./action";
 import Cart from "./Cart";
-import "./index.css";
-// import CurrencyComa from "../components/CurrencyComa";
+import "./index.scss";
 import ReduxApiComp from "./ReduxApiComp";
-// import Cards from "./Cards";
 
 const ReduxCompComponent = (props) => {
   const [count, setCount] = useState(0);
@@ -50,11 +49,8 @@ const ReduxCompComponent = (props) => {
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <a href="#">Home</a>
+              <Link to={"/"}>Home</Link>
             </li>
-            {/* <li className="breadcrumb-item">
-              <a href="#">Library</a>
-            </li> */}
             <li className="breadcrumb-item active" aria-current="page">
               Redux Component
             </li>

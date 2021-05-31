@@ -16,7 +16,8 @@ class ErrorBoundary extends Component {
     console.log(error, info);
   }
   render() {
-    if (this.state.hasError) return <h1>Somthing went wrong</h1>;
+    if (this.state.hasError)
+      return <h6 style={{ color: "red" }}>Somthing went wrong</h6>;
     return this.props.children;
   }
 }

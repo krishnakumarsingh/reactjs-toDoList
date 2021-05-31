@@ -3,11 +3,7 @@ import "./App.scss";
 import NavRouter from "./Router/NavRouter";
 
 function App() {
-  return (
-    <div className="container">
-      <NavRouter />
-    </div>
-  );
+  return <NavRouter />;
 }
 
 export default App;

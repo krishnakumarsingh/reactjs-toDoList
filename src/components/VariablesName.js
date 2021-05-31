@@ -1,4 +1,5 @@
 import React from "react";
+import CodePen from "./CodePen";
 
 export default function VariablesName() {
   const xyz = (x) => {
@@ -22,9 +23,9 @@ export default function VariablesName() {
   return (
     <div>
       <h1>Modify variable name</h1>
-      <code>
+      <CodePen>
         Convert modify_variable_name ={">"} {varNameConvert}
-      </code>
+      </CodePen>
     </div>
   );
 }

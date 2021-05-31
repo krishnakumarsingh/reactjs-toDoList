@@ -2,6 +2,7 @@ import React from "react";
 import HeaderText from "../components/HeaderText";
 import BlogComponent from "./BlogComponent";
 import BlogComponentWithName from "./BlogComponentWithName";
+import CodePen from "../components/CodePen";
 
 function HOCComp() {
   return (
@@ -13,14 +14,16 @@ function HOCComp() {
         A pattern where a function takes a component as an argument and returns
         a new component.
       </p>
-      <code>const NewComponent = higherOrderComponent(originalComponent);</code>
+      <CodePen>
+        const NewComponent = higherOrderComponent(originalComponent);
+      </CodePen>
       <br />
-      <code>
+      <CodePen>
         const EnhancedComponent = higherOrderComponent(originalComponent);
-      </code>
+      </CodePen>
       <br />
       <br />
-      <code>const IronMan = withSuit(TonyStark);</code>
+      <CodePen>const IronMan = withSuit(TonyStark);</CodePen>
       <br />
       <br />
     </>

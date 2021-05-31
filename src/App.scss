@@ -1,11 +1,38 @@
-$greenButton: #1ecb0e;
-$white: #ffffff;
-$gray: #eeeeee;
-$grayThinLight: #dddddd;
-$grayLight: #cccccc;
-$grayLighter: #f9f9f9;
-$grayDark: #888888;
-$horizontalLine: #00a2ff;
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import './styles/_variables.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  @include color(#000000, $opacity: 90);
+}
+body {
+  color: $darkGray3;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
 
 input {
   &[type="text"] {
@@ -14,6 +41,14 @@ input {
     width: 45%;
   }
 }
+
+code {
+    margin: 20px;
+    display: block;
+    padding: 20px;
+    background: #e7ecf4;
+}
+
 button {
   width: 26.5%;
   border: 1px solid $gray;
@@ -163,3 +198,4 @@ table td:last-child {
     top: 0;
   }
 }
+

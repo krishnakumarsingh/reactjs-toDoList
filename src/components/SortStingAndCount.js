@@ -1,4 +1,5 @@
 import React from "react";
+import CodePen from "./CodePen";
 
 export default function SortStingAndCount() {
   const xyz = (x) => {
@@ -22,11 +23,12 @@ export default function SortStingAndCount() {
     <div>
       <h1>Sort sting and count</h1>
       <p>Find out string chrachter and counting of that chrachter.</p>
-      <code>Sting = 'abhbqb'</code>
-      <br />
-      <code>
-        <pre>[{mapped.map((i) => i)}]</pre>
-      </code>
+      <CodePen>
+        Sting = 'abhbqb'
+        <br />[{mapped.map((i) => i)}]
+      </CodePen>
+
+      <noscript>{console.log("hello")}</noscript>
     </div>
   );
 }

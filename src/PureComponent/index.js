@@ -1,5 +1,6 @@
 import React from "react";
 import ParentComp from "./ParentComp";
+import CodePen from "../components/CodePen";
 
 const PureComp = () => {
   return (
@@ -10,14 +11,14 @@ const PureComp = () => {
         state, if it same then it not call. But with normal component it call
         every time.
       </p>
-      <code>
+      <CodePen>
         Example: <br />
         Old state ={">"} name = 'Krishna'
-      </code>
+      </CodePen>
       <br />
-      <code>New state ={">"} name = 'Krishna'</code>
+      <CodePen>New state ={">"} name = 'Krishna'</CodePen>
       <br />
-      <code>Normal component update every time</code>
+      <CodePen>Normal component update every time</CodePen>
       <br />
       <p>
         Pure component never update with same value it check every time deep
