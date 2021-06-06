@@ -1,7 +1,8 @@
 import React from "react";
 
 function CodePen(props) {
-  return <code>{props.children}</code>;
+  var styleClass = props.output && "code--output";
+  return <code className={styleClass}>{props.children}</code>;
 }
 
 export default CodePen;

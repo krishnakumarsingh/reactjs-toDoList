@@ -34,31 +34,43 @@ img {
   vertical-align: middle;
 }
 
-input {
-  &[type="text"] {
-    padding: 10px;
-    border: 0;
-    width: 45%;
-  }
+input[type=text],
+input[type=password] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
+
 
 code {
     margin: 20px;
     display: block;
     padding: 20px;
     background: #e7ecf4;
+    .code--output {
+      background-color: #ccc;
+      margin: 20px -20px;
+      &:last-child {
+        margin-bottom: -20px;
+      }
+    }
 }
 
 button {
-  width: 26.5%;
-  border: 1px solid $gray;
-  background-color: $greenButton;
-  padding: 10px;
-  color: $white;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
   font-weight: 700;
   box-sizing: border-box;
   &[disabled] {
     background-color: $grayLight;
+  }
+  &:hover {
+    opacity: 0.8;
   }
 }
 hr {

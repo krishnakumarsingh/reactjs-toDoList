@@ -8,3 +8,19 @@ $grayLight: #cccccc;
 $grayLighter: #f9f9f9;
 $grayDark: #888888;
 $horizontalLine: #00a2ff;
+
+$blue: #1e90ff;
+$linkBlue: #337ab7;
+$lightGray: #f0f0f0;
+$darkGray1: #999999;
+$darkGray3: #696969;
+$activeColor: #56a8c2;
+$cardBoxShadow: #00000040;
+
+@mixin color($color, $opacity: 1) {
+    color: $color;
+  
+    @if $opacity != 1 {
+        opacity: $opacity/100;
+    }
+}
