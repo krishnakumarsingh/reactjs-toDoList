@@ -1,7 +1,8 @@
 import React from "react";
 import ChunkArray from "../components/ChunkArray";
 import CodePen from "../components/CodePen";
-
+import PureJs2 from "./PureJs/PureJs2";
+import PureJs3 from "./PureJs/PureJs3";
 function PureJs() {
   const uniqueFn = () => {
     var arr = [1, 1, 1, 1, 3, 3, 3, 2, 2, 2, 4, 4, 4];
@@ -379,6 +380,10 @@ function PureJs() {
           </CodePen>
         </CodePen>
       </section>
+      <hr />
+      <PureJs2 />
+      <hr />
+      <PureJs3 />
     </div>
   );
 }
