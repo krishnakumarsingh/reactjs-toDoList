@@ -1,0 +1,13 @@
+.w-auto {
+    width: auto;
+}
+
+li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.breadcrumb li {
+    align-content: center;
+}

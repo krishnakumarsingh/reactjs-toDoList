@@ -13,6 +13,7 @@ module.exports = {
     contentBase: path.resolve(__dirname, "public"),
     hot: true,
     historyApiFallback: true,
+    watchContentBase: true,
   },
   module: {
     rules: [

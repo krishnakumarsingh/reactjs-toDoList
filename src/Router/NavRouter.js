@@ -8,7 +8,6 @@ import GuardedRoute from "./GuardedRoute";
 import LoginForm from "./LoginForm";
 import ReduxComp from "../ReduxComp";
 import PureJs from "./PureJs";
-import "./style.scss";
 
 const NavRouter = () => {
   const [isAutheticated, setIsAutheticated] = useState(

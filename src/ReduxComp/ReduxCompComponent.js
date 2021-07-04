@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { itemsAdd } from "./action";
 import Cart from "./Cart";
 import "./index.scss";
@@ -11,8 +10,6 @@ import ReduxApiComp from "./ReduxApiComp";
 const ReduxCompComponent = (props) => {
   const [count, setCount] = useState(0);
   const [cartCont, setCartCont] = useState([]);
-  const [cardsStyle, setCardsStyle] = useState("cards-style");
-  const [chunkCount, setChunkCount] = useState(9);
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   useEffect(() => {
@@ -43,53 +40,18 @@ const ReduxCompComponent = (props) => {
     setCartCont(cartConts);
     props.changeFieldValue(name, list);
   };
-  const navBar = (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light mt-3">
-      <div className="container">
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to={"/"}>Home</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Redux Component
-            </li>
-          </ol>
-        </nav>
-        <span className="navbar-text">
-          <i
-            className={`fas fa fa-th-large ft-2 mr-2 ${
-              cardsStyle === "cards-container" ? "" : "active"
-            }`}
-            onClick={() => {
-              setCardsStyle("cards-style");
-              setChunkCount(9);
-            }}
-          ></i>
-          <i
-            className={`fas fa fa-bars ft-2 ${
-              cardsStyle === "cards-style" ? "" : "active"
-            }`}
-            onClick={() => {
-              setCardsStyle("cards-container");
-              setChunkCount(10);
-            }}
-          ></i>
-        </span>
-      </div>
-    </nav>
-  );
   return (
     <div>
-      {navBar}
+      <h1>Comp 1</h1>
       <div className="product-card-container">
         <div className="col-md-8">
           <div className="row">
             <ReduxApiComp
               cartUpdateHanled={cartUpdateHanled}
-              cardsClass={cardsStyle}
-              chunkCount={chunkCount}
+              cardsClass={props.cardsStyle}
+              chunkCount={props.chunkCount}
               itemsAdd={posts}
+              priceLabel={true}
             />
           </div>
         </div>
@@ -97,8 +59,8 @@ const ReduxCompComponent = (props) => {
           <Cart
             cartUpdateHanled={removeCartUpdateHanled}
             data={cartCont}
-            cardsClass={cardsStyle}
-            chunkCount={chunkCount}
+            cardsClass={props.cardsStyle}
+            chunkCount={props.chunkCount}
           />
         </div>
       </div>

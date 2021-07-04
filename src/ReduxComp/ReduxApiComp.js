@@ -3,10 +3,13 @@ import Cards from "./Cards";
 import Pagination from "./Pagination";
 import Loading from "./Loading";
 
-function ReduxApiComp({ cartUpdateHanled, cardsClass, chunkCount, itemsAdd }) {
-  // const [error, setError] = useState(null);
-  // const [isLoaded, setIsLoaded] = useState(false);
-  // const [items, setItems] = useState([]);
+function ReduxApiComp({
+  cartUpdateHanled,
+  cardsClass,
+  chunkCount,
+  itemsAdd,
+  priceLabel = false,
+}) {
   const [currentPage, setCurrentPage] = useState(0);
   const chunkFn = function (arr, chunk) {
     var arrTemp = [];
@@ -41,6 +44,7 @@ function ReduxApiComp({ cartUpdateHanled, cardsClass, chunkCount, itemsAdd }) {
                     id={id}
                     url={url}
                     title={title}
+                    priceLabel={priceLabel}
                   />
                 );
               })}

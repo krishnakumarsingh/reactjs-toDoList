@@ -8,6 +8,7 @@ function Cards({
   id,
   url,
   title,
+  priceLabel,
   priceNet = CurrencyComa(199, "₹"),
 }) {
   let titleNew = title ? title.replace(/\s/g, "-") : "";
@@ -20,15 +21,15 @@ function Cards({
       title={titleNew}
     >
       <div className="card">
-        <div data-bg={url}>
-          <img src={url} alt={title} />
-        </div>
+        <div data-bg={url}>{url && <img src={url} alt={title} />}</div>
         <div className="card__content">
           <div className="card__title">{title}</div>
           <p className="card__text"></p>
-          <p className="card-text" style={{ textAlign: "right" }}>
-            <small className="text-muted">{priceNet}</small>
-          </p>
+          {priceLabel && (
+            <p className="card-text" style={{ textAlign: "right" }}>
+              <small className="text-muted">{priceNet}</small>
+            </p>
+          )}
         </div>
       </div>
     </li>

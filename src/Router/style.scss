@@ -1,6 +1,14 @@
 i.fas.fa {
     width: 16px;
 }
+.fa-auto {
+  width: auto !important;
+}
+.navbar-text {
+  i.fas.fa {
+    @extend .fa-auto;
+  } 
+}
 .login-block {
     position: absolute;
     top: 55px;

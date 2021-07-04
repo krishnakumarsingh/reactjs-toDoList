@@ -2,6 +2,121 @@ import React, { PureComponent } from "react";
 import CodePen from "../../components/CodePen";
 
 export class PureJs3 extends PureComponent {
+  /* 
+        // Function statement OR Function Declaration
+function a() {
+    console.log('Hehhehhe...!!');
+}
+// Function Expression
+const b = function () {
+    console.log('B: HAHAHHAHA...!!');
+}
+
+// Anonymous Function
+function () {
+    
+}
+
+// Named Function Expression
+const b = function xyz() {
+    console.log('B: HAHAHHAHA...!!');
+}
+
+// Named Function Expression
+const b = function xyz() {
+    console.log('B: HAHAHHAHA...!!');
+}
+b();
+xyz();
+B: HAHAHHAHA...!!
+Uncaught ReferenceError: xyz is not defined at <anonymous>
+xyz not created with globel scope
+
+=====================
+const b1 = function xyz() {
+    console.log(xyz);
+}
+b1();
+xyz();
+VM3909:3 ƒ xyz() {
+    console.log(xyz);
+}
+
+// Difference between Parameters & Arguments
+var b = function(para1) {
+    console.log('B!! '+para1);
+}
+b('arg1')
+
+
+// First Class Function OR First Class Citizens
+var b2 = function(para1) {
+    return para1;
+}
+b2(function() {});
+
+ability function as argument and return from another function called as first class function!!
+
+// What is callback function in JavaScript
+setTimeout(function() {     // callback start
+    console.log('timer'); // 
+}, 5000);                   // callback end
+function x(y) {
+    console.log('x');
+    y();
+}
+x(function y() {
+    console.log('y');
+})
+x
+y
+timer
+    */
+  /* 
+   var fruits = ['apple', 'banana', 'mango', 'lichi'];
+var fruitsObj = fruits.reduce((obj, fruit) => {
+    if(obj[fruit]) {
+        obj[fruit]++;
+    } else {
+        obj[fruit] = 1
+    }
+    return obj;
+}, {});
+console.log(fruitsObj);
+var arr = [
+    {name: 'Krishna', age:35},
+    {name: 'Kumar', age:33},
+    {name: 'Krishna1', age:35},
+    {name: 'Kumar1', age:33}
+];
+arr.filter(elem => elem.age === 35);
+var arr = [1,2,3];
+arr.map(elem => elem * 2);
+   */
+  /* 
+  var b = 10;
+function outer() {
+    console.log(b);//un
+    var b = 20;
+    function inner() {
+        b++;
+        console.log(b);//un
+        if(true) {
+            var b = 3;
+            console.log(b);//3
+        }
+    }
+    inner();
+}
+outer();
+
+=================
+var array = [];
+array.__proto__.myMethord = () => {}
+array.myMethord();
+=================
+
+  */
   render() {
     return (
       <>
